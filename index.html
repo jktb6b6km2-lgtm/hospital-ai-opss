@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital AI Ops Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hospital AI Operations Dashboard</h1>
+            <p class="subtitle">Intelligent Hospital Management System</p>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+            <button class="tab-btn" data-tab="discharge">Discharge Coordination</button>
+            <button class="tab-btn" data-tab="patients">Admitted Patients</button>
+            <button class="tab-btn" data-tab="insurance">Insurance Documents</button>
+            <button class="tab-btn" data-tab="referrals">Referrals</button>
+            <button class="tab-btn" data-tab="casesheets">Case Sheets</button>
+            <button class="tab-btn" data-tab="beds">Bed Availability</button>
+        </nav>
+
+        <main class="content">
+            <!-- Dashboard Tab -->
+            <section id="dashboard" class="tab-content active">
+                <h2>Overview Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Admitted Patients</h3>
+                        <p class="stat-number" id="totalPatients">--</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Beds Available</h3>
+                        <p class="stat-number" id="bedsAvailable">--</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Discharges</h3>
+                        <p class="stat-number" id="pendingDischarges">--</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pending Insurance Claims</h3>
+                        <p class="stat-number" id="insuranceClaims">--</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Discharge Coordination Tab -->
+            <section id="discharge" class="tab-content">
+                <h2>Discharge Coordination</h2>
+                <div class="form-section">
+                    <input type="text" placeholder="Patient ID" id="dischargePatientId">
+                    <input type="date" id="dischargeDate">
+                    <button onclick="addDischarge()">Schedule Discharge</button>
+                </div>
+                <div id="dischargeList" class="list-container"></div>
+            </section>
+
+            <!-- Admitted Patients Tab -->
+            <section id="patients" class="tab-content">
+                <h2>Admitted Patients</h2>
+                <div class="form-section">
+                    <input type="text" placeholder="Patient Name" id="patientName">
+                    <input type="text" placeholder="Patient ID" id="patientId">
+                    <input type="text" placeholder="Ward" id="patientWard">
+                    <button onclick="addPatient()">Add Patient</button>
+                </div>
+                <div id="patientsList" class="list-container"></div>
+            </section>
+
+            <!-- Insurance Documents Tab -->
+            <section id="insurance" class="tab-content">
+                <h2>Insurance Document Management</h2>
+                <div class="form-section">
+                    <input type="text" placeholder="Patient ID" id="insurancePatientId">
+                    <input type="text" placeholder="Policy Number" id="policyNumber">
+                    <input type="text" placeholder="Insurance Provider" id="insuranceProvider">
+                    <button onclick="addInsuranceDoc()">Add Document</button>
+                </div>
+                <div id="insuranceList" class="list-container"></div>
+            </section>
+
+            <!-- Referrals Tab -->
+            <section id="referrals" class="tab-content">
+                <h2>Referrals Management</h2>
+                <div class="form-section">
+                    <input type="text" placeholder="Patient ID" id="referralPatientId">
+                    <input type="text" placeholder="Referred To" id="referredTo">
+                    <input type="text" placeholder="Reason" id="referralReason">
+                    <button onclick="addReferral()">Add Referral</button>
+                </div>
+                <div id="referralsList" class="list-container"></div>
+            </section>
+
+            <!-- Case Sheets Tab -->
+            <section id="casesheets" class="tab-content">
+                <h2>Case Sheet Digitization</h2>
+                <div class="form-section">
+                    <input type="text" placeholder="Patient ID" id="casePatientId">
+                    <textarea placeholder="Case Notes" id="caseNotes"></textarea>
+                    <button onclick="addCaseSheet()">Save Case Sheet</button>
+                </div>
+                <div id="casesheetsList" class="list-container"></div>
+            </section>
+
+            <!-- Bed Availability Tab -->
+            <section id="beds" class="tab-content">
+                <h2>Bed Availability</h2>
+                <div class="form-section">
+                    <input type="text" placeholder="Ward Name" id="wardName">
+                    <input type="number" placeholder="Total Beds" id="totalBeds">
+                    <input type="number" placeholder="Occupied Beds" id="occupiedBeds">
+                    <button onclick="addBedInfo()">Update Bed Status</button>
+                </div>
+                <div id="bedsList" class="list-container"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
