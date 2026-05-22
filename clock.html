@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock - Multi Timezone</title>
+    <link rel="stylesheet" href="clock-styles.css">
+</head>
+<body>
+    <div class="clock-container">
+        <header class="clock-header">
+            <h1>🕐 Multi-Timezone Digital Clock</h1>
+            <p class="subtitle">Real-time world clock</p>
+        </header>
+
+        <div class="controls">
+            <div class="timezone-selector">
+                <label for="timezoneSelect">Add Timezone:</label>
+                <select id="timezoneSelect">
+                    <option value="">Select a timezone...</option>
+                </select>
+                <button onclick="addTimezone()">Add</button>
+            </div>
+            <button class="btn-reset" onclick="resetToDefault()">Reset to Default</button>
+        </div>
+
+        <div class="clocks-grid" id="clocksGrid">
+            <!-- Clock cards will be dynamically inserted here -->
+        </div>
+
+        <div class="info-panel">
+            <h3>Current UTC Time</h3>
+            <p id="utcTime" class="utc-time">--:--:-- UTC</p>
+            <p class="timestamp" id="timestamp"></p>
+        </div>
+    </div>
+
+    <script src="clock-app.js"></script>
+</body>
+</html>
